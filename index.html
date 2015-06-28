@@ -19,15 +19,27 @@ addEventListener("mousedown", function(e) {
       if(!value)
        value="NOTSET";
        var xmlhttp = new XMLHttpRequest();
-       xmlhttp.open("GET","http://localhost:8090?track="+value+"&ts="+new Date().getTime(),true);
+       var pageName = getName();
+       xmlhttp.open("GET","http://localhost:8090?page="+pageName+"/"+value+"&ts="+new Date().getTime(),true);
        xmlhttp.send();
   }
 function sendTracking2(valuex, valuey)
 {
     var xmlhttp = new XMLHttpRequest();
-    var page = document.URL;
-    xmlhttp.open("GET","http://localhost:8090?track="+"SCREEN x: "+valuex+" y: "+valuey+"&ts="+new Date().getTime(),true);
+    var pageName = getName();
+    xmlhttp.open("GET","http://localhost:8090?page="+pageName+"/LOCATION x: "+valuex+" y: "+valuey+"&ts="+new Date().getTime(),true);
     xmlhttp.send();}
+    
+function getName(){
+    var pageURL = document.URL;
+    var length = pageURL.length;
+    var pageNum = pageURL.charAt(length - 1);
+     if (pageURL.charAt(length - 2) != 'e')
+         pageNum = pageURL.charAt(length - 2) + pageNum;
+    var pageID = "page"+pageNum;
+    var pageName = document.getElementById(pageID).getAttribute("name");
+    return pageName;
+}
 </script>
  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
@@ -50,6 +62,8 @@ function sendTracking2(valuex, valuey)
      length = currentURL.length;
      currentPageNum = parseInt(currentURL.charAt(length - 1));
      //currentPageNum = currentURL.charAt(currentURL.length – 1);
+     if (currentURL.charAt(length - 2) != 'e')
+         currentPageNum = currentURL.charAt(length - 2) + currentPageNum;
      if (currentPageNum >= 1)
      lastPageNum = currentPageNum - 1;
      lastURL = "#page"+lastPageNum;
@@ -69,6 +83,8 @@ function sendTracking2(valuex, valuey)
      currentURL = document.URL;
      length = currentURL.length;
      currentPageNum = currentURL.charAt(length - 1);
+     if (currentURL.charAt(length - 2) != 'e')
+         currentPageNum = currentURL.charAt(length - 2) + currentPageNum;
      nextPageNum = parseInt(currentPageNum) + 2;
      nextURL = "#page" + nextPageNum;
      window.location.href=nextURL;
