@@ -27,7 +27,7 @@ function sendTracking2(valuex, valuey)
 {
     var xmlhttp = new XMLHttpRequest();
     var pageName = getName();
-    xmlhttp.open("GET","http://localhost:8090?page="+pageName+"/LOCATION x: "+valuex+" y: "+valuey+"&ts="+new Date().getTime(),true);
+    xmlhttp.open("GET","http://localhost:8090?page="+pageName+"/LOCATION x= "+valuex+" y= "+valuey+"&ts="+new Date().getTime(),true);
     xmlhttp.send();}
     
 function getName(){
@@ -47,7 +47,7 @@ function getName(){
      
      function jumptoPrint()
      {
-         setTimeout(function(){nextPage()},5000);
+         setTimeout(function(){nextPage()},10000);
      }
      
      function keybd(key){
@@ -117,6 +117,11 @@ function getName(){
                                                            }
                                                            });
      }
+     
+     function playSound(){
+        document.embeds[0].play();
+     }
+</script> 
  </script>
  <style type = "text/css">
  #foot {
@@ -133,7 +138,7 @@ function getName(){
 
  
  .ui-header {
-   background-color: #f47822;
+   background-color: #2b9209;
   background-image: none;
   color: #000;
 }
@@ -170,7 +175,7 @@ padding-bottom:20px;
 }
 
 .btnIco:hover {
-  background: #f47822;
+  background: #2b9209;
   text-decoration: none;
 }
 
@@ -183,7 +188,7 @@ padding-bottom:20px;
   -moz-box-shadow: 1px 1px 3px #666666;
   box-shadow: 1px 1px 3px #666666;
   font-family: Arial;
-  color: #f47822;
+  color: #2b9209;
   font-size: 20px;
   background: #ffffff;
   padding: 10px 20px 10px 20px;
@@ -198,7 +203,7 @@ padding-bottom:20px;
      -moz-box-shadow: 1px 1px 3px #666666;
      box-shadow: 1px 1px 3px #666666;
      font-family: Arial;
-     color: #f47822;
+     color: #2b9209;
      font-size: 20px;
      background: #ffffff;
      padding: 10px 20px 10px 20px;
@@ -213,7 +218,7 @@ padding-bottom:20px;
      -moz-box-shadow: 1px 1px 3px #666666;
      box-shadow: 1px 1px 3px #666666;
      font-family: Arial;
-     color: #f47822;
+     color: #2b9209;
      font-size: 20px;
      background: #ffffff;
      height: 150px;
@@ -223,7 +228,7 @@ padding-bottom:20px;
  }
  
 .btnFootSec:hover {
-  background: #f2cfb8;
+  background: #739269;
   text-decoration: none;
 }
  
@@ -273,8 +278,8 @@ overflow: scroll;
      <input type="submit" value="Submit" />
      </form>
 -->
-   <a id="CONDITION 1" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:center; position:relative; margin-right:35px;" href="#page0" onclick="sequence(1);" >CONDITION 1</a>  
-     <a id="CONDITION 2" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:center; position:relative; margin-right:35px;" href="#page0" onclick="sequence(2);" >CONDITION 2</a>
+   <a id="CONDITION 1" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:center; position:relative; margin-right:35px;" href="#page0" onclick="sequence(1);" >CONDITION 1</a>  
+     <a id="CONDITION 2" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:center; position:relative; margin-right:35px;" href="#page0" onclick="sequence(2);" >CONDITION 2</a>
      
  </div>
  </div>
@@ -292,7 +297,7 @@ overflow: scroll;
   <a id="Dutch" class="btnIco" style="background: #ccc; background:url(dutch.png);  color:#000000; background-repeat: no-repeat;" href="">DANSK&nbsp;&nbsp;&nbsp;</a>
  </div>
  <div class="customfoot">
-  <a id="Home-Cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="">Cancel</a>
+  <a id="Home-Cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="">Cancel</a>
  </div>
  </div>
  
@@ -306,22 +311,22 @@ overflow: scroll;
      <div id="content" data-role = "content">
          <table width="100%" height="100%">
              <tr>
-                 <td align="center"><a id="AUTH-BKRF" class="btnMe" style="color:#f47822;  float:right; position:relative;" href="javascript:nextPage();" >type your <br/>BOOKING REFERENCE</a></td>
+                 <td align="center"><a id="AUTH-BKRF" class="btnMe" style="color:#2b9209;  float:right; position:relative;" href="javascript:nextPage();" >type your <br/>BOOKING REFERENCE</a></td>
                  <th rowspan="3">SELECT AN OPTION<br/> TO LOCATE YOUR<br/> BOOKING</th>
-                 <td align="center"><a id="AUTH-AUPS" class="btnMe" style="color:#f47822;  float:left; position:relative; " href="#page11" >scan your <br/>PASSPORT</a></td>
+                 <td align="center"><a id="AUTH-AUPS" class="btnMe" style="color:#2b9209;  float:left; position:relative; " href="#page11" >scan your <br/>PASSPORT</a></td>
              </tr>
              <tr >
-                 <td align="center"><a id="AUTH-AUCC" class="btnMe" style="color:#f47822;  float:right; position:relative;" >insert your <br/>CREDIT CARD</a></td>
+                 <td align="center"><a id="AUTH-AUCC" class="btnMe" style="color:#2b9209;  float:right; position:relative;" >insert your <br/>CREDIT CARD</a></td>
              </tr>
              <tr >
-                 <td align="center"><a id="AUTH-AUBP" class="btnMe" style="color:#f47822;  float:right; position:relative; " >scan your <br/>BORDING PASS</a></td>
+                 <td align="center"><a id="AUTH-AUBP" class="btnMe" style="color:#2b9209;  float:right; position:relative; " >scan your <br/>BORDING PASS</a></td>
              </tr>
              </table>
          
      </div>
      <div class="customfoot">
-         <a id="AUTH-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href= "javascript:lastPage();" >Back</a>&nbsp;&nbsp;
-         <a id="AUTH-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0" >Cancel</a>
+         <a id="AUTH-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href= "javascript:lastPage();" >Back</a>&nbsp;&nbsp;
+         <a id="AUTH-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0" >Cancel</a>
      </div>
  </div>
  
@@ -400,9 +405,9 @@ overflow: scroll;
      
  </div>
  <div class="customfoot">
-     <a id="BKRF-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();" >Back</a>&nbsp;&nbsp;
- <a id="BKRF-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0">Cancel</a>
- <a id="BKRF-next" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();" >Next</a>
+     <a id="BKRF-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();" >Back</a>&nbsp;&nbsp;
+ <a id="BKRF-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0">Cancel</a>
+ <a id="BKRF-next" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();" >Next</a>
  </div>
  </div>
 
@@ -450,9 +455,9 @@ overflow: scroll;
      </table>
  </div>
  <div class="customfoot">
-     <a id="STPG-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-     <a id="STPG-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
-     <a id="STPG-next" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
+     <a id="STPG-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+     <a id="STPG-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
+     <a id="STPG-next" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
  </div>
  </div>
      
@@ -466,18 +471,18 @@ overflow: scroll;
          </div>
          <div id="content" data-role = "content">
              <br/><br/><br/><br/>
-             <div><center><br/><font size="4"><b>Are you carring any prohibited or restricted items on board the aircraft?</font><a  ><font color="#f47822"><u>View restricted items</u></a></b></font></center></div>
+             <div><center><br/><font size="4"><b>Are you carring any prohibited or restricted items on board the aircraft?</font><a  ><font color="#2b9209"><u>View restricted items</u></a></b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
-                     <th><a id="FRBN-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="FRBN-N" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="FRBN-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="FRBN-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="FRBN-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="FRBN-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
+             <a id="FRBN-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="FRBN-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
          </div>
      </div>
      
@@ -495,14 +500,14 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
-                     <th><a id="DIMH-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="DIMH-N"class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="DIMH-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="DIMH-N"class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="DIMH-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="DIMH-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
+             <a id="DIMH-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="DIMH-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
          </div>
      </div>
      
@@ -520,14 +525,14 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
-                     <th><a id="LIQH-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="LIQH-N" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; "  href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="LIQH-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="LIQH-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; "  href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="LIQH-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="LIQH-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
+             <a id="LIQH-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="LIQH-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
          </div>
      </div>
      
@@ -547,14 +552,14 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="PRLT-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();">Yes</a></th>
-                     <th><a id="PRLT-N" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
+                     <th><a id="PRLT-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();">Yes</a></th>
+                     <th><a id="PRLT-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="PRLT-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="PRLT-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
+             <a id="PRLT-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="PRLT-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"  >Cancel</a>
          </div>
      </div>
      
@@ -569,6 +574,7 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
+             <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
      
@@ -587,14 +593,14 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="PRBP-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();" >Yes</a></th>
-                     <th><a id="PRBP-N" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
+                     <th><a id="PRBP-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();" >Yes</a></th>
+                     <th><a id="PRBP-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="PRBP-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="PRBP-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
+             <a id="PRBP-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="PRBP-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
          </div>
      </div>
     
@@ -627,7 +633,7 @@ overflow: scroll;
              <div align="center"><img src="takeCard.png"></div>
          </div>
          <div class="customfoot">
-             <a id="Finish" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"   >Next Customer</a>
+             <a id="Finish" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"   >Next Customer</a>
          </div>
      </div>
      
@@ -648,8 +654,8 @@ overflow: scroll;
                  </table>
          </div>
          <div class="customfoot">
-             <a id = "AUPS-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id = "AUPS-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
+             <a id = "AUPS-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id = "AUPS-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
          </div>
      </div>
      
@@ -797,9 +803,9 @@ overflow: scroll;
 
          
          <div class="customfoot">
-             <a id = "STSO-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id = "STSO-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
-             <a id="STSO-next" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
+             <a id = "STSO-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id = "STSO-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
+             <a id="STSO-next" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
          </div>
      </div>
     
@@ -818,14 +824,14 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="EXBG-Y" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:left; position:relative; " href="javascript:nextPage();"  >Yes</a></th>
-                     <th><a id="EXBG-N" class="btnFootSec" style="color:#ffffff; background-color:#f47822; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="EXBG-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();"  >Yes</a></th>
+                     <th><a id="EXBG-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
          <div class="customfoot">
-             <a id="EXBG-back" class="btnFootSec" style="color:#f47822; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
-             <a id="EXBG-cancel" class="btnFootSec" style="color:#f47822;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
+             <a id="EXBG-back" class="btnFootSec" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;
+             <a id="EXBG-cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="#page0"   >Cancel</a>
          </div>
      </div>
      
