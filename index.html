@@ -121,6 +121,7 @@ function getName(){
      function playSound(){
         document.embeds[0].play();
      }
+     
 </script> 
  </script>
  <style type = "text/css">
@@ -340,12 +341,12 @@ overflow: scroll;
  <div id="content" data-role = "content">
      <div color="#ffffff"><center><font size="6">Enter Booking Reference</font></center></div>
      <div><center>Type the reference code provided by easyJet</center></div>
-     <form width = "50%"><input id="reference" type="text" name="reference" /></form>
+     <form style="width: 30%; margin:auto;"><input id="reference" type="text" name="reference" /></form>
      <br/><br/>
      <div align='center'>
          <table aligh="center" >
              <tr>
-                 <td colspan = '2'><button id="BKRF-KB1" class="btnKbd" type="button" onclick="keybd(1)">1</button></td>
+                 <td colspan = '2'style="width: 90px;"><button id="BKRF-KB1" class="btnKbd" type="button" onclick="keybd(1)" >1</button></td>
                  <td colspan = '2'><button id="BKRF-KB2" class="btnKbd" type="button" onclick="keybd(2)">2</button></td>
                  <td colspan = '2'><button id="BKRF-KB3" class="btnKbd" type="button" onclick="keybd(3)">3</button></td>
                  <td colspan = '2'><button id="BKRF-KB4" class="btnKbd" type="button" onclick="keybd(4)">4</button></td>
@@ -471,7 +472,7 @@ overflow: scroll;
          </div>
          <div id="content" data-role = "content">
              <br/><br/><br/><br/>
-             <div><center><br/><font size="4"><b>Are you carring any prohibited or restricted items on board the aircraft?</font><a  ><font color="#2b9209"><u>View restricted items</u></a></b></font></center></div>
+             <div><center><br/><font size="4"><b>Are you carring any prohibited or restricted items on board the aircraft?     </font><a id="showRestrictItem" class="btnFootSec" style="color:#2b9209; background-color:#ffffff; position:relative; font-size:8px; " onclick="" >>>View restricted items</a></b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
