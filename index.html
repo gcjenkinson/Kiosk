@@ -292,13 +292,12 @@ overflow: scroll;
  <div class="headerbottom">
  <center>SELECT YOUR LANGUAGE</center>
  </div>
- <div id="content" data-role = "content">
-  <br/><br/><br/>
-  <a id="English" class="btnIco"  style="background: #fff; background:url(english.png); color:#000000;  background-repeat: no-repeat;" href="javascript:nextPage();">ENGLISH</a><br/><br/><br/>
-  <a id="Dutch" class="btnIco" style="background: #ccc; background:url(dutch.png);  color:#000000; background-repeat: no-repeat;" href="">DANSK&nbsp;&nbsp;&nbsp;</a>
- </div>
- <div class="customfoot">
-  <a id="Home-Cancel" class="btnFootSec" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" href="">Cancel</a>
+ <div id="content" data-role = "content" style="text-align:center;">
+  <br/><br/><br/><br/><br/><br/><br/>
+  <a id="English" class="btnIco"  style="background: #fff; background:url(english.png); color:#000000;  background-repeat: no-repeat; text-align:center;" href="javascript:nextPage();">English&nbsp;&nbsp;</a><br/><br/><br/>
+  <a id="French" class="btnIco" style="background: #fff; background:url(français.png);  color:#000000; background-repeat: no-repeat;" href="">Français</a><br/><br/><br/>
+  <a id="Germany" class="btnIco" style="background: #fff; background:url(deutsh.png);  color:#000000; background-repeat: no-repeat;" href="">Deutsh&nbsp;&nbsp;&nbsp;</a><br/><br/><br/>
+  <a id="Denish" class="btnIco" style="background: #fff; background:url(dutch.png);  color:#000000; background-repeat: no-repeat;" href="">Dansk&nbsp;&nbsp;&nbsp;&nbsp;</a>
  </div>
  </div>
  
@@ -471,8 +470,9 @@ overflow: scroll;
               
          </div>
          <div id="content" data-role = "content">
-             <br/><br/><br/><br/>
-             <div><center><br/><font size="4"><b>Are you carring any prohibited or restricted items on board the aircraft?     </font><a id="showRestrictItem" class="btnFootSec" style="color:#2b9209; background-color:#ffffff; position:relative; font-size:8px; " onclick="" >>>View restricted items</a></b></font></center></div>
+             <br/><br/><br/>
+             <div align="center"><img src="caution.png"></div>
+             <div><center><br/><font size="5"><b>Are you carring any prohibited or restricted items on board the aircraft?     </font><a id="showRestrictItem" class="btnFootSec" style="color:#2b9209; background-color:#ffffff; position:relative; font-size:8px; " onclick="" >>>View restricted items</a></b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
@@ -496,8 +496,9 @@ overflow: scroll;
               
          </div>
          <div id="content" data-role = "content">
-             <br/><br/><br/><br/>
-             <div><center><br/><font size="4"><b>Does your hand baggage size exceed the dimensions 56 x 45 x 25cm?</b></font></center></div>
+             <br/><br/><br/>
+             <div align="center"><img src="caution.png"></div>
+             <div><center><br/><font size="5"><b>Does your hand baggage size exceed the dimensions 56 x 45 x 25cm?</b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
@@ -520,9 +521,10 @@ overflow: scroll;
              <center>SECURITY QUESTIONS</center>
               
          </div>
-         <div id="content" data-role = "content" >
-             <br/><br/><br/><br/>
-             <div><center><br/><font size="4"><b>Do you have any liquids in your hand baggage over 100ml?</b></font></center></div>
+         <div id="content" data-role = "content" style = "margin:auto;">
+             <br/><br/><br/>
+             <div align="center"><img src="caution.png"></div>
+             <div><center><br/><font size="5"><b>Do you have any liquids in your hand baggage over 100ml?</b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="20%" align="center">
                  <tr>
@@ -548,10 +550,10 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div align="center"><img src="tag.png"></div>
-             <div><center><br/><font size="5"><b>DO YOU NEED TO PRINT YOUR BAG TAGS?</b></font></center></div>
+             <div><center><br/><font size="5"><b>Do you need to print your luggage tags?</b></font></center></div>
              <div><center><br/>Print tags for bags to be checked in.</center></div>
              <br/><br/><br/><br/><br/>
-             <table width="30%" align="center">
+             <table width="20%" align="center">
                  <tr>
                      <th><a id="PRLT-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();">Yes</a></th>
                      <th><a id="PRLT-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
@@ -589,10 +591,10 @@ overflow: scroll;
          </div>
          <div id="content" data-role = "content">
              <br/><br/><br/>
-             <div align="center"><img src="tag.png"></div>
-             <div><center><br/><font size="5"><b>DO YOU WANT TO PRINT YOUR BOARDING PASS?</b></font></center></div>
+             <div align="center"><img src="boardingpass.png"></div>
+             <div><center><br/><font size="5"><b>Do you want to print your boarding pass?</b></font></center></div>
              <br/><br/><br/><br/><br/>
-             <table width="30%" align="center">
+             <table width="20%" align="center">
                  <tr>
                      <th><a id="PRBP-Y" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();" >Yes</a></th>
                      <th><a id="PRBP-N" class="btnFootSec" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
@@ -616,6 +618,7 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
+             <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
      
@@ -821,7 +824,7 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div align="center"><img src="tag.png"></div>
-             <div><center><br/><font size="5"><b>DO YOU NEED TO PAY FOR EXTRA BAG?</b></font></center></div>
+             <div><center><br/><font size="5"><b>Do you need to pay for extra bag?</b></font></center></div>
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
