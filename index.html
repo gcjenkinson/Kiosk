@@ -44,7 +44,7 @@ function getName(){
  <script src="jquery-1.9.1.min.js"></script>
  <script src="jquery.mobile-1.3.1.min.js"></script>
  <script>
-     
+     var seatLabel = "N/A";
      function jumptoPrint()
      {
          setTimeout(function(){nextPage()},10000);
@@ -96,7 +96,7 @@ function getName(){
                       var myOrder = new Array(0,4,5,13,2,1,3,10,11,7,8,12,14,9,6);
                       break;
                       case 2:
-                      var myOrder = new Array(0,2,3,13,4,6,1,10,11,8,9,12,14,5,7);
+                      var myOrder = new Array(0,1,3,14,4,6,2,11,12,9,10,13,8,5,7);
                       break;
                       default:
                       var myOrder = new Array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14);                   
@@ -122,8 +122,10 @@ function getName(){
         document.embeds[0].play();
      }
      
+     //function clearData(){}
      function clearData(){
-         document.getElementById("reference").value = "";
+         //document.getElementById("reference").value = "";
+         $("#reference").attr("value","");
          //document.getElementById(pageID)
          enableSeating();
          /*if(selectedSeat != null){
@@ -132,9 +134,10 @@ function getName(){
             selectedSeat = null;
          }*/
           window.location.href="#page0"; 
+         seatLabel = "N/A";
      }
      
-     function setAirline( num){
+     function setAirline(num){
          var brandy= document.getElementsByName("brandlogo");
          var cancel = document.getElementsByName("btnFootCancel");
          var next = document.getElementsByName("btnFootNext");
@@ -154,7 +157,6 @@ function getName(){
              case 3: newlogo = "logo2.png";
                      newColour ="#2b9209";
                      break;
-             
          }
          for(var i=0; i< brandy.length; i++)
          {
@@ -169,20 +171,7 @@ function getName(){
          {
              next[i].style.backgroundColor = newColour;
          }
-       /*  switch(num){
-          case 0:
-                 mylogo = "happyjet.png";
-                 document.getElementsByName("headimg").src=mylogo;
-                 break;
-          default:
-                 mylogo = "metroair.png";
-         }
-         
-        var imgs =document.getElementsByName("headimg"); 
-        */
      }
-     
-</script> 
  </script>
  <style type = "text/css">
  #foot {
@@ -199,7 +188,7 @@ function getName(){
 
  
  .ui-header {
-   background-color: #2b9209;
+   background-color: #000000;
   background-image: none;
   color: #000;
 }
@@ -250,7 +239,7 @@ padding-bottom:20px;
   -moz-box-shadow: 1px 1px 3px #666666;
   box-shadow: 1px 1px 3px #666666;
   font-family: Arial;
-  color: #2b9209;
+  color: #000000;
   font-size: 20px;
   background: #ffffff;
   padding: 10px 20px 10px 20px;
@@ -372,19 +361,19 @@ overflow: scroll;
          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
          <table width="100%" height="100%">
              <tr>
-                 <td align="center"><a id="AIRL-0" class="btnMe" style="background:#1ebcd9;  float:right; position:relative;" href="javascript:nextPage();setAirline(0);" ><img src="metroair.png" /></a></td>
-                 <td align="center"><a id="AIRL-1" class="btnMe" style="background:#f83f0e;  float:left; position:relative; " href="javascript:nextPage();setAirline(1);" ><img src="happyjet.png" /></a></td>
+                 <td align="center"><a id="AIRL-0" class="btnMe" style="background:#777777;  float:right; position:relative;" href="javascript:nextPage();setAirline(0);displayAirline(0);" ><img src="metroair.png" /></a></td>
+                 <td align="center"><a id="AIRL-1" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(1);displayAirline(1);" ><img src="happyjet.png" /></a></td>
              </tr>
              <tr > 
-                 <td align="center"><a id="AIRL-2" class="btnMe" style="background:#d9c11e;  float:right; position:relative;" href="javascript:nextPage();setAirline(2);"><img src="quickfly.png" /></a></td>
-                 <td align="center"><a id="AIRL-3" class="btnMe" style="background:#2b9209;  float:left; position:relative; " href="javascript:nextPage();setAirline(3);"><img border="0" src="logo2.png" /></td>
+                 <td align="center"><a id="AIRL-2" class="btnMe" style="background:#777777;  float:right; position:relative;" href="javascript:nextPage();setAirline(2);displayAirline(2);"><img src="quickfly.png" /></a></td>
+                 <td align="center"><a id="AIRL-3" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(3);displayAirline(3);"><img border="0" src="logo2.png" /></td>
              </tr>
              </table>
          
      </div>
      <div class="customfoot">
          <!-- <a id="AIRL-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href= "javascript:lastPage();" >Back</a>&nbsp;&nbsp;-->
-         <a id="AIRL-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
+         <a id="AIRL-cancel" class="btnFootSec" name="btnFootCancel" style="color:#777777;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
      </div>
  </div>
  
@@ -533,8 +522,8 @@ overflow: scroll;
              <br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="FRBN-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="FRBN-N" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="FRBN-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="FRBN-N" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
@@ -559,8 +548,8 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="DIMH-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="DIMH-N"class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="DIMH-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="DIMH-N"class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
@@ -585,8 +574,8 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="LIQH-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
-                     <th><a id="LIQH-N" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; "  href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="LIQH-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; "   >Yes</a></th>
+                     <th><a id="LIQH-N" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; "  href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
@@ -612,8 +601,8 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="PRLT-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();">Yes</a></th>
-                     <th><a id="PRLT-N" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
+                     <th><a id="PRLT-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();">Yes</a></th>
+                     <th><a id="PRLT-N" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
                  </tr>
              </table>
          </div>
@@ -634,6 +623,8 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
+             <br/><br/><br/><br/>>
+             <div><center><font size="5"><b>Please collect your luggage tag and tag it on your luggage.</b></font></center></div>
              <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
@@ -653,8 +644,8 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="PRBP-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();" >Yes</a></th>
-                     <th><a id="PRBP-N" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
+                     <th><a id="PRBP-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();" onclick="jumptoPrint();playSound();" >Yes</a></th>
+                     <th><a id="PRBP-N" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:next2Page();"  >No</a></th>
                  </tr>
              </table>
          </div>
@@ -675,6 +666,8 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
+             <br/><br/><br/><br/>
+             <div><center><font size="5"><b>Please collect you boarding pass</b></font></center></div>
              <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
@@ -684,8 +677,7 @@ overflow: scroll;
              <h1><img src="logo.png" name="brandlogo"></h1>
          </div>
          <div class="headerbottom">
-             <center>FINISH</center>
-              
+             <center>FINISH</center>             
          </div>
          <div id="content" data-role = "content">
              <br/><br/><br/><br/><br/><br/><br/><br/>
@@ -694,7 +686,7 @@ overflow: scroll;
              <!--- <div align="center"><img src="takeCard.png"></div> -->
          </div>
          <div class="customfoot">
-             <a id="Finish" class="btnFootSec" name="btnFootNext" style="color:#2b9209;  float:left; position:relative; margin-right:15px;"   onclick = "clearData();">Next Customer</a>
+             <a id="Finish" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;"   onclick = "clearData();">Next Customer</a>
          </div>
      </div>
      
@@ -706,16 +698,58 @@ overflow: scroll;
              <center>Confirm</center>
          </div>
          <div id="content" data-role = "content">
-             <table width="100%">
+             <br/><br/><br/><br/>
+             <table width="50%" height="100%"align="center" border = "3">
                  <tr>
-                     <th><img src="scan.png"></th>
-                     <th style="vertical-align:middle; text-align:center;">Scan Id for MS JESSICA ALBA</th>
+                     <th>
+                         <div style="background:#c6c5c5;"><font size = "5"><b>Flight Details</b></font></div>
+                         </th>
                      </tr>
-                 </table>
+                 <tr width = "50%">
+                     <td align="center" style="vertical-align:middle; text-align:left; padding-left: 25px;">
+                                 <br/>
+                                 <font color="#696969">Flight</font><br/>
+                                 <b>SN 2103</b><br/><br/>
+                                 <font color="#696969">Itinerary</font><br/>
+                                 <b id="airline"></b><br/><br/>
+                                 <font color="#696969">Flight Date</font><br/>
+                                 <b>Wednesday, 5 Aug</b><br/><br/>
+                                 <font color="#696969">Flight Time</font><br/>
+                                 <b>16:00</b><br/><br/>
+                                 <font color="#696969">Seat</font><br/>
+                                 <b id="seatlabel"></b><br/><br/>
+                         <script>
+                             function displayAirline(num){
+                                 var $airline = $('#airline');
+                                 switch (num){
+                                         case 0:
+                                            $('<b>'+'Heathrow (HTW) - Glasgow (GLA)'+'</b>').appendTo($airline);
+                                            break;
+                                         case 1:
+                                            $('<b>'+'Heathrow (HTW) - Edinburgh (EDI)'+'</b>').appendTo($airline);
+                                            break;
+                                         case 2:
+                                            $('<b>'+'Heathrow (HTW) - Cardiff (CWL)'+'</b>').appendTo($airline);
+                                            break;
+                                         case 3:
+                                            $('<b>'+'Heathrow (HTW) - Geneva (GVA)'+'</b>').appendTo($airline);
+                                            break;
+                                 }
+                             }
+                             
+                             function displayLabel(){
+                             var $label = $('#seatlabel');
+                             $('<b>'+seatLabel+'</b>')
+								.appendTo($label);}
+                         </script>
+                     </td>
+                 </tr>
+             </table>
          </div>
          <div class="customfoot">
              <!-- <a id = "AUPS-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp; -->
-             <a id = "AUPS-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
+             <a id = "CFRM-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
+             <a id = "CFRM-next" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
          </div>
      </div>
      
@@ -820,6 +854,7 @@ overflow: scroll;
                             $('#cart-item-'+selectedSeat.settings.id).remove();
                             sc.get(selectedSeat.settings.id).status('available');}
 							selectedSeat = this;
+                            seatLabel = this.settings.label;
 							/*
 							 * Lets update the counter and total
 							 *
@@ -833,6 +868,7 @@ overflow: scroll;
 							//remove the item from our cart
 							$('#cart-item-'+this.settings.id).remove();
 						    selectedSeat = null;
+                            seatLabel = "N/A";
 							//seat has been vacated
 							return 'available';
 						} else if (this.status() == 'unavailable') {
@@ -871,12 +907,11 @@ overflow: scroll;
 		}    
 		
 		</script>
-
-         
+        
          <div class="customfoot">
              <!-- <a id = "STSO-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp; -->
              <a id = "STSO-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();"   >Cancel</a>
-             <a id="STSO-next" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();"  >Next</a>
+             <a id="STSO-next" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();displayLabel();"  >Next</a>
          </div>
      </div>
     
@@ -894,8 +929,8 @@ overflow: scroll;
              <br/><br/><br/><br/><br/>
              <table width="30%" align="center">
                  <tr>
-                     <th><a id="EXBG-Y" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();"  >Yes</a></th>
-                     <th><a id="EXBG-N" class="btnFootSec" name="btnFootCancel" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
+                     <th><a id="EXBG-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:left; position:relative; " href="javascript:nextPage();"  >Yes</a></th>
+                     <th><a id="EXBG-N" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right;position:relative; " href="javascript:nextPage();"  >No</a></th>
                  </tr>
              </table>
          </div>
