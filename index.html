@@ -93,13 +93,13 @@ function getName(){
                $(document).ready(function(){ 
               switch(condition){
                    case 1:
-                      var myOrder = new Array(0,4,5,13,2,1,3,10,11,7,8,12,14,9,6);
+                      var myOrder = new Array(0,2,3,14,1,6,5,8,9,11,12,23,7,10,4);
                       break;
-                      case 2:
+                   case 2:
                       var myOrder = new Array(0,1,3,14,4,6,2,11,12,9,10,13,8,5,7);
                       break;
-                      default:
-                      var myOrder = new Array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14);                   
+                   default:
+                      var myOrder = new Array(0,1,3,14,4,6,2,11,12,9,10,13,8,5,7);                  
               }
              
                                                            for (var i = 0; i < myOrder.length; i++){
@@ -122,18 +122,10 @@ function getName(){
         document.embeds[0].play();
      }
      
-     //function clearData(){}
      function clearData(){
-         //document.getElementById("reference").value = "";
          $("#reference").attr("value","");
-         //document.getElementById(pageID)
          enableSeating();
-         /*if(selectedSeat != null){
-            $('#cart-item-'+selectedSeat.settings.id).remove();
-            sc.get(selectedSeat.settings.id).status('available');
-            selectedSeat = null;
-         }*/
-          window.location.href="#page0"; 
+         window.location.href="#page0"; 
          seatLabel = "N/A";
      }
      
@@ -154,7 +146,7 @@ function getName(){
              case 2: newlogo = "quickfly.png";
                      newColour ="#d9c11e";
                      break;
-             case 3: newlogo = "logo2.png";
+             case 3: newlogo = "coolflight.png";
                      newColour ="#2b9209";
                      break;
          }
@@ -203,10 +195,11 @@ function getName(){
 }
 .headerbottom
 {
-padding-top:20px;
-padding-bottom:20px;
+ padding-top:16px;
+ padding-bottom:16px;
  background-color: #000000;
-  color: #ffffff;
+ color: #ffffff;
+ font-size: 20px;
 }
 
 .btnIco {
@@ -366,7 +359,7 @@ overflow: scroll;
              </tr>
              <tr > 
                  <td align="center"><a id="AIRL-2" class="btnMe" style="background:#777777;  float:right; position:relative;" href="javascript:nextPage();setAirline(2);displayAirline(2);"><img src="quickfly.png" /></a></td>
-                 <td align="center"><a id="AIRL-3" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(3);displayAirline(3);"><img border="0" src="logo2.png" /></td>
+                 <td align="center"><a id="AIRL-3" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(3);displayAirline(3);"><img border="0" src="coolflight.png" /></td>
              </tr>
              </table>
          
@@ -624,7 +617,7 @@ overflow: scroll;
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
              <br/><br/><br/><br/>>
-             <div><center><font size="5"><b>Please collect your luggage tag and tag it on your luggage.</b></font></center></div>
+             <div><center><font size="5"><b>Please collect your luggage tag and attach it on your luggage.</b></font></center></div>
              <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
@@ -667,7 +660,7 @@ overflow: scroll;
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
              <br/><br/><br/><br/>
-             <div><center><font size="5"><b>Please collect you boarding pass</b></font></center></div>
+             <div><center><font size="5"><b>Please collect you boarding pass below</b></font></center></div>
              <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
      </div>
@@ -721,26 +714,33 @@ overflow: scroll;
                          <script>
                              function displayAirline(num){
                                  var $airline = $('#airline');
+                                 $('<b id="temp"></b>').appendTo($airline);
                                  switch (num){
                                          case 0:
-                                            $('<b>'+'Heathrow (HTW) - Glasgow (GLA)'+'</b>').appendTo($airline);
+                                            document.getElementById("temp").remove();
+                                            $('<b id="temp">'+'Heathrow (HTW) - Glasgow (GLA)'+'</b>').appendTo($airline);
                                             break;
                                          case 1:
-                                            $('<b>'+'Heathrow (HTW) - Edinburgh (EDI)'+'</b>').appendTo($airline);
+                                            document.getElementById("temp").remove();
+                                            $('<b id="temp">'+'Heathrow (HTW) - Edinburgh (EDI)'+'</b>').appendTo($airline);
                                             break;
                                          case 2:
-                                            $('<b>'+'Heathrow (HTW) - Cardiff (CWL)'+'</b>').appendTo($airline);
+                                            document.getElementById("temp").remove();
+                                            $('<b id="temp">'+'Heathrow (HTW) - Cardiff (CWL)'+'</b>').appendTo($airline);
                                             break;
                                          case 3:
-                                            $('<b>'+'Heathrow (HTW) - Geneva (GVA)'+'</b>').appendTo($airline);
+                                            document.getElementById("temp").remove();
+                                            $('<b id="temp">'+'Heathrow (HTW) - Geneva (GVA)'+'</b>').appendTo($airline);
                                             break;
                                  }
                              }
                              
                              function displayLabel(){
-                             var $label = $('#seatlabel');
-                             $('<b>'+seatLabel+'</b>')
-								.appendTo($label);}
+                                 var $label = $('#seatlabel');
+                                 $('<b id="templabel"></b>').appendTo($label);
+                                 document.getElementById("templabel").remove();
+                                 $('<b id="templabel">'+seatLabel+'</b>').appendTo($label);
+                             }
                          </script>
                      </td>
                  </tr>
