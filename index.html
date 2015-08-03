@@ -93,13 +93,13 @@ function getName(){
                $(document).ready(function(){ 
               switch(condition){
                    case 1:
-                      var myOrder = new Array(0,2,3,14,1,6,5,8,9,11,12,13,7,10,4);
+                      var myOrder = new Array(0,2,3,16,1,6,5,8,9,12,13,15,7,11,4,10,14);
                       break;
                    case 2:
-                      var myOrder = new Array(0,1,3,14,4,6,2,11,12,9,10,13,8,5,7);
+                      var myOrder = new Array(0,1,3,16,4,6,2,12,13,9,10,15,8,5,7,14,11);
                       break;
                    default:
-                      var myOrder = new Array(0,1,3,14,4,6,2,11,12,9,10,13,8,5,7);                  
+                      var myOrder = new Array(0,1,3,16,4,6,2,12,13,9,10,15,8,5,7,14,11);                  
               }
              
                                                            for (var i = 0; i < myOrder.length; i++){
@@ -626,7 +626,7 @@ overflow: scroll;
          <div id="content" data-role = "content">
              <br/><br/><br/>
              <div><center><font size="8"><b>PRINTING ...</b></font></center></div>
-             <br/><br/><br/><br/>>
+             <br/><br/><br/><br/>
              <div><center><font size="6"><b>Please collect your luggage tag and attach it on your luggage.</b></font></center></div>
              <embed src="printer.mp3" autostart="false" hidden="true">
          </div>
@@ -952,6 +952,57 @@ overflow: scroll;
              <a id="EXBG-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
          </div>
      </div>
+    
+         <div id = "page15" name = "PRLT-CFRM" data-role = "page" data-theme = "b">
+         <div id="head"  data-role = "header">
+             <h1><img src="logo.png" name="brandlogo"></h1>
+         </div>
+         <div class="headerbottom">
+             <center>CONFIRM</center>
+              
+         </div>
+         <div id="content" data-role = "content">
+             <br/><br/><br/><br/><br/><br/>
+             <div><center><br/><font size="6"><b>Have you attached your luggage tag on your luggage?</font></b></font></center></div>
+             <br/><br/><br/><br/><br/><br/>
+             <table width="30%" align="center">
+                 <tr>
+                     <th><a id="PRLT-CFRM-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:center; position:relative; " href="javascript:nextPage();"  >Yes, go ahead >>></a></th>
+                 </tr>
+             </table>
+         </div>
+         <div class="customfoot">
+             <!-- <a id="FRBN-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;-->
+             <a id="PRLT-CFRM-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
+         </div>
+     </div>
+    
+    
+         <div id = "page16" name = "PRBP-CFRM" data-role = "page" data-theme = "b">
+         <div id="head"  data-role = "header">
+             <h1><img src="logo.png" name="brandlogo"></h1>
+         </div>
+         <div class="headerbottom">
+             <center>CONFIRM</center>
+              
+         </div>
+         <div id="content" data-role = "content">
+             <br/><br/><br/><br/><br/><br/>
+             <div><center><br/><font size="6"><b>Have you collected your boarding pass?</font></b></font></center></div>
+             <br/><br/><br/><br/><br/><br/>
+             <table width="30%" align="center">
+                 <tr>
+                     <th><a id="PRBP-CFRM-Y" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:center; position:relative; " href="javascript:nextPage();"  >Yes, go ahead >>></a></th>
+                 </tr>
+             </table>
+         </div>
+         <div class="customfoot">
+             <!-- <a id="FRBN-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();"  >Back</a>&nbsp;&nbsp;-->
+             <a id="PRBP-CFRM-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();" >Cancel</a>
+         </div>
+     </div>
+
+
      
 </body>
 </html>
