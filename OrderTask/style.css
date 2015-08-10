@@ -1,0 +1,80 @@
+body {
+    font-family: sans-serif;
+}
+
+.task-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.task {
+    position: relative;
+    display: block;
+    margin: 10px;
+    float: left;
+    cursor: move;
+    padding-bottom: 10px;
+    xbackground: #ccc;
+}
+
+.task-detail {
+    position: relative;
+    display: block;
+    border: solid 2px #000;
+    width: 200px;
+    height: 100px;
+    padding: 1em 0.5em 2em 0.5em;;
+    text-align: center;
+}
+
+.task-detail.wrong-order {
+    border: solid 2px #F00;
+}
+
+.task.over {
+    border: dashed 2px #000;
+}
+
+.task.over-left {
+    padding-left: 40px;
+    xborder-left: solid 2px #000;
+    background-image: url('images/arrow.png');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+.task.over-right {
+    padding-right: 40px;
+    xborder-right: solid 2px #000;
+    background-image: url('images/arrow.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+.task .left, .task .right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 50%;
+}
+
+.task .left {
+    left: 0;
+    xbackground: #fcc;
+}
+
+.task .right {
+    right: 0;
+    xbackground: #ccf;
+}
+
+.list, p, h2 {
+    float: none;
+    clear: both;
+}
+
+.task.dragging .task-detail {
+    opacity: 0.5;
+}

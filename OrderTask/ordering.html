@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ordering task - drag/drop test</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+
+    <h2>Airline Checkin Procedure</h1>
+    <div id = "alertInfo"></div>
+    <ul class="task-list" id="checkin-task">
+    </ul>
+
+    <p>Drag all tasks below into the desired order below...</p>
+
+    <h2>Airline Checkin tasks</h2>
+    <ol class="task-list" id="checkin-task-pool">
+    </ol>
+
+    <p/>
+    <div>
+       <span><button onclick="sendTracking();displayButton();">Submit</button></span>
+       <span id = "check" style = "visibility:hidden">
+       <button onclick="checkPartialOrder()">Check Partial Order</button> 
+       <!-- <button onclick="displayCheckinTaskOrdering()">Display Checkin Task</button> -->
+       </span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
