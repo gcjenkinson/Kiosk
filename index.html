@@ -85,7 +85,7 @@ function getName(){
      currentPageNum = currentURL.charAt(length - 1);
      if (currentURL.charAt(length - 2) != 'e')
          currentPageNum = currentURL.charAt(length - 2) + currentPageNum;
-     nextPageNum = parseInt(currentPageNum) + 2;
+     nextPageNum = parseInt(currentPageNum) + 3;
      nextURL = "#page" + nextPageNum;
      window.location.href=nextURL;
  }
@@ -318,7 +318,7 @@ overflow: scroll;
  <div class="headerbottom">
  <center>SELECT EXPERIMENT CONDITION</center>
  </div>
- <div id="content" data-role = "content" style = "width:450px;text-align:center;margin-left:auto;
+ <div id="content" data-role = "content" style = "width:550px;text-align:center;margin-left:auto;
     margin-right:auto;margin-top:150px; margin-bottom:auto;">
 <!--
  <form name = "myform" action="" method="post">
