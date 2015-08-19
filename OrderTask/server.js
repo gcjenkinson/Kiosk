@@ -2,19 +2,8 @@ var fs = require('fs');
 var http = require('http');
 var url = require('url') ;
 var time = new Date();
-var myfile = Date.now() + '.xls';
+var myfile = 'data.xls';
 var orderDataStr = "";
-
-//Create header ...
-var head = "";
-for( var i=1; i<= 11; i++){
-	head = head + "Order " + i + "\t";
-}
-head = head + "Time" + "\n";
-fs.appendFile(myfile, head, function (err) {
-                               if (err) return console.log(err);
-                               console.log('ADD LOG > ' + myfile);
-                               });
 
 http.createServer(function (req, res) {
                   var queryObject = url.parse(req.url,true).query;

@@ -11,6 +11,7 @@ taskDetails["CFRM"] = {title: "Confirm", src:"images/CFRM.png"};
 taskDetails["PRBP"] = {title: "Reprint boarding pass?", src:"images/PRBP.png"};
 taskDetails["DIMH"] = {title: "Hand luggage size?", src:"images/DIMH.png"};
 taskDetails["LIQH"] = {title: "Liquids >100ml?", src:"images/LIQH.png"};
+taskDetails["END"]  = {title: "END", src:"images/END.png"};
 
 // Dependecies need to be flattened
 var partialOrder = {};
@@ -24,7 +25,8 @@ partialOrder["PRLT"] = ["LANG", "AIRL", "BKRF", "STSO", "EXBG", "CFRM"];
 partialOrder["PRBP"] = ["LANG", "AIRL", "BKRF", "CFRM", "STSO"];
 partialOrder["DIMH"] = ["LANG", "AIRL"];
 partialOrder["LIQH"] = ["LANG"];
-partialOrder["CFRM"] = ["STSO", "LANG", "AIRL", "BKRF"];
+partialOrder["CFRM"] = ["LANG", "AIRL", "BKRF"];
+partialOrder["END"]  = ["LANG", "AIRL", "BKRF", "FRBN", "STSO", "EXBG", "PRLT", "PRBP", "DIMH", "LIQH", "CFRM"];
 
 var checkintask = document.getElementById("checkin-task");
 var taskpool = document.getElementById("checkin-task-pool");
@@ -56,7 +58,7 @@ for (var key in taskDetails) {
     task.appendChild(right);
 
     // Add the new task to the approriate HTML list
-    if (key === "LANG") {
+    if (key === "LANG" || key === "END") {
         // Add the task to the checkin task 
         checkintask.appendChild(task);
     } else {
