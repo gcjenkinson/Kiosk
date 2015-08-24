@@ -174,6 +174,17 @@ function getName(){
              next[i].style.backgroundColor = newColour;
          }
      }
+     
+     function checkBKRF(){
+         var refValue = document.getElementById("reference").value;
+         if(refValue=="RJCE92"||refValue=="MTXCRR"||refValue=="TUZ98B"){
+            nextPage();
+         }
+         else{
+             $("#reference").attr("value","");
+             alert("Booking reference do not exist.");
+         }
+     }
  </script>
  <style type = "text/css">
  #foot {
@@ -368,7 +379,7 @@ overflow: scroll;
                  <td align="center"><a id="AIRL-1" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(1);displayAirline(1);" ><img src="images/happyjet.png" /></a></td>
              </tr>
              <tr > 
-                 <td align="center"><a id="AIRL-2" class="btnMe" style="background:#777777;  float:right; position:relative;" href="javascript:nextPage();setAirline(2);displayAirline(2);"><img src="images/quickfly.png" /></a></td>
+                 <td align="center"><a id="AIRL-2" class="btnMe" style="background:#777777;  float:right; position:relative;" href="javascript:nextPage();setAirline(2);displayAirline(2);" ><img src="images/quickfly.png" /></a></td>
                  <td align="center"><a id="AIRL-3" class="btnMe" style="background:#777777;  float:left; position:relative; " href="javascript:nextPage();setAirline(3);displayAirline(3);"><img border="0" src="images/coolflight.png" /></td>
              </tr>
              </table>
@@ -457,7 +468,7 @@ overflow: scroll;
  <div class="customfoot">
      <!-- <a id="BKRF-back" class="btnFootSec" name="btnFootCancel" style="color:#2b9209; float:left; position:relative; margin-right:15px;" href="javascript:lastPage();" >Back</a>&nbsp;&nbsp; -->
  <a id="BKRF-cancel" class="btnFootSec" name="btnFootCancel" style="color:#2b9209;  float:left; position:relative; margin-right:15px;" onclick="clearData();">Cancel</a>
- <a id="BKRF-next" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:nextPage();" >Next</a>
+ <a id="BKRF-next" class="btnFootSec" name="btnFootNext" style="color:#ffffff; background-color:#2b9209; float:right; position:relative; margin-right:35px;" href="javascript:checkBKRF();" >Next</a>
  </div>
  </div>
 
