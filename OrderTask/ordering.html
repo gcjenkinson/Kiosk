@@ -1,30 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head;
+      any other head content must come *after* these tags -->
     <title>Ordering task - drag/drop test</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FuelUX -->
+    <link href="bower_components/fuelux/dist/css/fuelux.min.css" rel="stylesheet">
+
+    <!-- Ordering task -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      .row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .vcenter {
+          display: inline-block;
+          vertical-align: middle;
+          float: none;
+      }
+    </style>
   </head>
-  <body>
+  <body class="fuelux">
+    <div class="wizard" data-initialize="wizard" id="task-order-wizard">
+      <div class="steps-container">
+        <ul class="steps">
+          <li data-step="1" data-name="overview" class="active">
+            <span class="badge">1</span>Overview
+            <span class="chevron"></span>
+          </li>
+          <li data-step="2" data-name="your-experience">
+            <span class="badge">2</span>Your experience
+            <span class="chevron"></span>
+          </li>
+          <li data-step="3" data-name="ordering-task">
+            <span class="badge">3</span>Ordering task
+            <span class="chevron"></span>
+          </li>
+        </ul>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-default btn-prev">
+          <span class="glyphicon glyphicon-arrow-left"/></span>Prev
+        </button>
+        <button type="button" class="btn btn-primary btn-next" data-last="Complete">Next
+          <span class="glyphicon glyphicon-arrow-right"></span>
+        </button>
+      </div>
+      <form id="task-order-form" action="results.php" method="post" class="form-horizontal">
+      <div class="step-content">
+        <div class="step-pane active sample-pane alert" data-step="1">
+          <div class="page-header">
+            <h1>Overview</h1>
+          </div>
+          <p class="lead text-justify">
+         Thank you for your assistance with this project! As a professional
+         designer, your insight is invaluable to this research project. We very
+         much appreciate your input.
+         <br>
+         <br>
+         First, you will be asked some basic questions about yourself and your background as a designer.
+         <br>
+         <br>
+         Next, we ask you to arrange various parts of an Airline Kiosk Check-In
+         procedure. To do so, you will drag and drop various parts of the Kiosk
+         Check-In procedure to create a final product. Certain parts must go
+         before or after other parts, and you will be alerted if these need to
+         be changed. When you are done, click "Complete" in the upper right
+         hand.
+         <br>
+         <br>
+         Again, thank your for being a part of our research project!
+         </p>
+         <br>
+         <p class="text-justify">
+         This research project has been approved by the designated ethics officer in the
+         Computer Science Department at UCL. The research project is compliant with the
+         Data Protection Act 1998 (Data Protection Registration Number: 20150722)</p>
+         <p>
+          <div class="row">
+             <div class="col-sm-2 col-sm-offset-3 vcenter">
+                <img src="images/ucl_logo.png" width="200"/>
+             </div>
+            <div class="col-sm-2 col-sm-offset-2 vcenter">
+               <img src="images/ucam_logo.jpg" width="200"/>
+            </div>
+          </div>
+        </div>
+        <div class="step-pane sample-pane bg-info alert" data-step="2" id="occupation-step">
+          <div class="page-header">
+            <h1>Your experience</h1>
+          </div>
+          <div class="lead">Tell us a little about your background</div>
+          <p>
+          <div class="form-group">
+          <div class="row">
+             <div class="col-sm-4 col-sm-offset-1">
+                How would you best describe your current occupation?
+             </div>
+            <div class="col-sm-6">
+              <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist"
+                id="occupation">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                  <span class="selected-label">&nbsp;</span>
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li data-value="interaction-design"><a href="#">Interaction Design</a></li>
+                  <li data-value="product-design"><a href="#">Product Design</a></li>
+                  <li data-value="industrial-design"><a href="#">Industrial Design</a></li>
+                  <li data-value="other"><a href="#">Other</a></li>
+                </ul>
+                <input class="hidden hidden-field" name="occupation-value" readonly="readonly"
+                  aria-hidden="true" type="text" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+             <div class="col-sm-4 col-sm-offset-1">
+                Do you design interactive physical products?
+             </div>
+            <div class="col-sm-6">
+              <div class="radio">
+                <label class="radio-custom" data-initialize="radio" id="physical-products-yes">
+                   <input class="sr-only" name="physical-products-value" type="radio" value="yes">Yes
+                </label>
+              </div>
+              <div class="radio checked">
+                <label class="radio-custom" data-initialize="radio" id="physical-products-no">
+                  <input class="sr-only" checked="checked" name="physical-products-value" type="radio"
+                    value="no">No
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+             <div class="col-sm-4 col-sm-offset-1">
+                Do you design interactive software products?
+             </div>
+            <div class="col-sm-6">
+              <div class="radio">
+                <label class="radio-custom" data-initialize="radio" id="software-products-yes">
+                  <input class="sr-only" name="software-products-value" type="radio" value="yes">
+                    Yes</label>
+              </div>
+              <div class="radio checked">
+                <label class="radio-custom" data-initialize="radio" id="software-products-no">
+                  <input class="sr-only" checked="checked" name="software-products-value" type="radio"
+                    value="no">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+               Briefly describe the main focus of your current occupation:
+            </div>
+            <div class="col-sm-6">
+               <textarea class="form-control" rows="5"
+                  name="occupation-focus-value" id="occupation-focus" required></textarea>
+            </div>
+          </div>
+          <div class="row">
+             <div class="col-sm-4 col-sm-offset-1">
+                How many years have you worked as a designer?
+             </div>
+            <div class="col-sm-6">
+              <div class="spinbox" data-initialize="spinbox" id="experience-years">
+                 <input type="text" name="experience-years-value"
+                  class="form-control input-mini spinbox-input">
+                  <div class="spinbox-buttons btn-group btn-group-vertical">
+                    <button type="button" class="btn btn-default spinbox-up btn-xs">
+                      <span class="glyphicon glyphicon-chevron-up"></span><span class="sr-only">
+                        Increase</span>
+                    </button>
+                    <button type="button" class="btn btn-default spinbox-down btn-xs">
+                      <span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only">
+                        Decrease</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+             <div class="col-sm-4 col-sm-offset-1">
+                What is your highest level of education?
+             </div>
+            <div class="col-sm-6">
+              <div class="btn-group selectlist" data-resize="auto"
+                data-initialize="selectlist" id="education">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                  <span class="selected-label">&nbsp;</span>
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li data-value="secondary-school"><a href="#">Secondary School</a></li>
+                  <li data-value="some-university"><a href="#">Some University</a></li>
+                  <li data-value="university-degree"><a href="#">University Degree</a></li>
+                  <li data-value="masters-degree"><a href="#">Masters Degree</a></li>
+                  <li data-value="doctorate"><a href="#">Doctorate</a></li>
+                </ul>
+                <input class="hidden hidden-field" name="education-value" readonly="readonly"
+                  aria-hidden="true" type="text" required/>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="step-pane sample-pane alert" data-step="3">
+          <div class="page-header">
+            <h1>Airline Checkin <small>Ordering task</small></h1>
+          </div>
 
-    <h2>Airline Checkin Procedure</h1>
-    <div id = "alertInfo"></div>
-    <ul class="task-list" id="checkin-task">
-    </ul>
+          <div class="alert alert-danger" id="checkin-task-incomplete-alert">
+            <strong>Checkin task is incomplete.</strong>
+         </div>
 
-    <p>Drag all tasks below into the desired order below...</p>
+         <div class="alert alert-warning" id="checkin-task-ordering-alert" style="display: none">
+            <strong>The following ordering constraints must be met:</strong>
+            <div id="checking-task-ordering-alert-text"></div>
+         </div>
 
-    <h2>Airline Checkin tasks</h2>
-    <ol class="task-list" id="checkin-task-pool">
-    </ol>
+         <div class="alert alert-success" id="checkin-task-success-alert" style="display: none">
+            <strong>Airline checkin task is valid!</strong>
+         </div>
 
-    <p/>
-    <div>
-       <span><button onclick="sendTracking();displayButton();">Submit</button></span>
-       <span id = "check" style = "visibility:hidden">
-       <button onclick="checkPartialOrder()">Check Partial Order</button> 
-       <!-- <button onclick="displayCheckinTaskOrdering()">Display Checkin Task</button> -->
-       </span>
+          <h2>Desired task order</h2>
+          <ul class="task-list" id="checkin-task"></ul>
+
+          <h2>Unused tasks</h2>
+          <p>Drag all unused tasks into the desired order above...</p>
+
+          <ol class="task-list" id="checkin-task-pool"></ol>
+
+         <input class="hidden hidden-field" id="airline-task" name="airline-task-value"
+            readonly="readonly" aria-hidden="true" type="text" required/>
+        </div>
+        <!--
+        <div class="step-pane active sample-pane bg-info alert" data-step="4">
+          <div class="page-header">
+            <h1>Thank you</h1>
+          </div>
+          <p class="lead">Thank you for completing the task.</p>
+          <p>If you have any questions about our reserach please contact x@y.com</p>
+       </div>-->
+      </div>
+      </form>
     </div>
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/fuelux/dist/js/fuelux.min.js"></script>
+
+    <!-- Task ordering -->
     <script src="script.js"></script>
+    <!-- Wizard validation -->
+    <script src="wizardvalidation.js"></script>
+
   </body>
 </html>

@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+   font-family: sans-serif;
 }
 
 .task-list {
@@ -22,8 +22,6 @@ body {
     position: relative;
     display: block;
     border: solid 2px #000;
-    width: 200px;
-    height: 100px;
     padding: 1em 0.5em 2em 0.5em;;
     text-align: center;
 }

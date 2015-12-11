@@ -28,8 +28,8 @@ partialOrder["LIQH"] = ["LANG"];
 partialOrder["CFRM"] = ["LANG", "AIRL", "BKRF"];
 partialOrder["END"]  = ["LANG", "AIRL", "BKRF", "FRBN", "STSO", "EXBG", "PRLT", "PRBP", "DIMH", "LIQH", "CFRM"];
 
-var checkintask = document.getElementById("checkin-task");
-var taskpool = document.getElementById("checkin-task-pool");
+const checkintask = document.getElementById("checkin-task");
+const taskpool = document.getElementById("checkin-task-pool");
 
 for (var key in taskDetails) {
     // Create a new task
@@ -47,9 +47,12 @@ for (var key in taskDetails) {
     taskImage.setAttribute('src', taskDetails[key].src);
     taskImage.setAttribute('height', '100px');
     taskImage.setAttribute('width', '200px');
-    taskTitle.appendChild(taskTitleValue);
-    taskTitle.appendChild(taskImage);
-    taskDetail.appendChild(taskTitle);
+    //taskTitle.appendChild(taskTitleValue);
+    taskDetail.appendChild(taskTitleValue);
+    var br = document.createElement("br");
+    taskDetail.appendChild(br);
+    //taskDetail.appendChild(taskTitle);
+    taskDetail.appendChild(taskImage);
     task.appendChild(taskDetail);
 
     // Add the right and left elements to the task
@@ -59,7 +62,7 @@ for (var key in taskDetails) {
 
     // Add the new task to the approriate HTML list
     if (key === "LANG" || key === "END") {
-        // Add the task to the checkin task 
+        // Add the task to the checkin task
         checkintask.appendChild(task);
     } else {
         // Add the task to the taskpool
@@ -67,9 +70,9 @@ for (var key in taskDetails) {
     }
 }
 
-function displayCheckinTaskOrdering() {
+function getCheckinTaskOrdering() {
     var listItems = checkintask.getElementsByTagName('li');
-    var checkinTaskStr = "Checkin task ordering\n";
+    var checkinTaskStr = "";
     for (var i = 0; i < listItems.length-1; i++) {
         var task = listItems[i];
         var taskId = task.getAttribute("id");
@@ -77,7 +80,8 @@ function displayCheckinTaskOrdering() {
         checkinTaskStr = checkinTaskStr.concat(", ");
     }
     checkinTaskStr = checkinTaskStr.concat(listItems[listItems.length-1].getAttribute("id"));
-    alert(checkinTaskStr);
+    //alert(checkinTaskStr);
+    return checkinTaskStr;
 }
 
 function checkPartialOrder() {
@@ -96,11 +100,11 @@ function checkPartialOrder() {
                         task.getElementsByClassName("task-detail")[0].classList.add("wrong-order")
                         nTask.getElementsByClassName("task-detail")[0].classList.add("wrong-order");
                         if (!(nTaskId in orderingExceptions)) {
-                            orderingExceptions[nTaskId] = new Array(); 
+                            orderingExceptions[nTaskId] = new Array();
                         }
                         orderingExceptions[nTaskId].push(taskId);
-                        orderingExceptionsSet.add(taskId); 
-                        orderingExceptionsSet.add(nTaskId); 
+                        orderingExceptionsSet.add(taskId);
+                        orderingExceptionsSet.add(nTaskId);
                     } else  {
                         if (!orderingExceptionsSet.has(taskId)) {
                             listItems[i].getElementsByClassName("task-detail")[0].classList.remove("wrong-order")
@@ -117,58 +121,40 @@ function checkPartialOrder() {
     // Create the alert warning about all partial ordering constraints
     var nOrderingExceptions = 0;
     for (var item in orderingExceptions) {
-       nOrderingExceptions++; 
+       nOrderingExceptions++;
     }
     if (nOrderingExceptions !== 0) {
         var warningStr = "Partial order constraint(s) not satisfied\n";
         for (var item in orderingExceptions) {
-			warningStr = warningStr.concat("</br>");
+            warningStr = warningStr.concat("</br>");
             //warningStr = warningStr.concat(item);
-			warningStr = warningStr.concat("[");
-			warningStr = warningStr.concat(taskDetails[item].title);
-			warningStr = warningStr.concat("]");
+            warningStr = warningStr.concat("[");
+            warningStr = warningStr.concat(taskDetails[item].title);
+            warningStr = warningStr.concat("]");
             warningStr = warningStr.concat(" must be before ");
             var tempStr = "";
             for (var i = 0; i < orderingExceptions[item].length-1; i++) {
-				tempStr = tempStr.concat("[");
+                tempStr = tempStr.concat("[");
                 tempStr = tempStr.concat(taskDetails[orderingExceptions[item][i]].title);
                 tempStr = tempStr.concat("], ");
             }
-			tempStr = tempStr.concat("[");
+            tempStr = tempStr.concat("[");
             tempStr = tempStr.concat(taskDetails[orderingExceptions[item][orderingExceptions[item].length-1]].title);
-			tempStr = tempStr.concat("]");
+            tempStr = tempStr.concat("]");
             warningStr = warningStr.concat(tempStr);
-            
+
         }
         //alert(warningStr);
 
+        /*
     // Add the task details: title...
-	var alertInfo = document.getElementById("alertInfo");
+    var alertInfo = document.getElementById("alertInfo");
     //task.appendChild(taskDetail);
-	alertInfo.innerHTML = warningStr;
+    alertInfo.innerHTML = warningStr;
+    */
     }
-}
 
-function sendTracking()
-  {
-       var listItems = document.getElementById("checkin-task").children;
-	   var checkinTaskStr = '';
-	   for (var i = 0; i < listItems.length - 1; i++) {
-        var task = listItems[i];
-        var taskId = task.getAttribute("id");
-        checkinTaskStr = checkinTaskStr.concat(taskId);
-        checkinTaskStr = checkinTaskStr.concat(">");
-    	}
-	   checkinTaskStr = checkinTaskStr.concat(listItems[listItems.length-1].getAttribute("id"));
-	   //value = document.getElementById("checkin-task").innerText;
-       var xmlhttp = new XMLHttpRequest();
-       xmlhttp.open("GET","http://localhost:8090?value="+checkinTaskStr+"&ts="+new Date().getTime(),true);
-       xmlhttp.send();
-       alert("Thank you! Please call the experimenter.");
-  }
-
-function displayButton(){
-    document.getElementById("check").style.visibility = 'visible';
+    return warningStr;
 }
 
 // Utils
@@ -277,7 +263,7 @@ function handleDropLeft(e) {
         e.stopPropagation();
     }
 
-    // this is the "left" element that's getting dropped on    
+    // this is the "left" element that's getting dropped on
     var targetListEl = this.parentNode.parentNode;
     var targetItemEl = this.parentNode;
 
@@ -288,14 +274,14 @@ function handleDropLeft(e) {
 
         if (getFirstChild(targetListEl) === targetItemEl) {
             // Add <div class="left"/> to the draggingEl (that is, the new first
-            // element in the HTML list) and remove it from the targetItemEl 
+            // element in the HTML list) and remove it from the targetItemEl
             var newDivEl = document.createElement("div");
             newDivEl.classList.add('left');
             newDivEl.addEventListener('drop', handleDropLeft, false);
             newDivEl.addEventListener('dragenter', handleDragEnterLeft, false);
             newDivEl.addEventListener('dragleave', handleDragLeaveLeft, false);
             draggingEl.appendChild(newDivEl);
-            
+
             var leftDiv = targetItemEl.querySelectorAll(':scope > .left');
             targetItemEl.removeChild(leftDiv[0]);
         }
@@ -315,7 +301,7 @@ function handleDropRight(e) {
     // this is the "right" element that's getting dropped on
     var targetListEl = this.parentNode.parentNode;
     var targetItemEl = this.parentNode;
-    
+
     // Check we're not just dropping something on itself
     if (draggingEl != targetItemEl) {
         // Remove draggingEl from its parent
@@ -334,6 +320,38 @@ function handleDropRight(e) {
 }
 
 function handleDragEnd(e) {
+    console.log("End of drag : " + getCheckinTaskOrdering());
+
+    // Populate the input with the user's task ordering
+    const airlinetask = document.getElementById("airline-task");
+    airlinetask.value = getCheckinTaskOrdering();
+       
+   // Get the partial ordering constraints 
+    const partialOrderStr = checkPartialOrder();
+
+    // Check if the unused task pool is empty
+    if ($('#checkin-task-pool li').length === 0) {
+        $('#checkin-task-incomplete-alert').hide();
+        // Check if the partial order constraints are met
+        if (partialOrderStr === undefined) {
+            $('#checkin-task-ordering-alert').hide();
+            $('#checkin-task-success-alert').show();
+        } else {
+            $('#checkin-task-ordering-alert').find("strong").html(partialOrderStr);
+            $('#checkin-task-ordering-alert').show();
+        }
+    } else {
+        $('#checkin-task-incomplete-alert').show();
+        $('#checkin-task-success-alert').hide();
+        // Check if the partial order constraints are met
+        if (partialOrderStr === undefined) {
+            $('#checkin-task-ordering-alert').hide();
+        } else {
+            $('#checkin-task-ordering-alert').find("strong").html(partialOrderStr);
+            $('#checkin-task-ordering-alert').show();
+        }
+    }
+
     // this is the thing that stopping getting dragged
     forEach(tasks, function (index, item) {
         item.classList.remove('over');
