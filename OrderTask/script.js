@@ -47,11 +47,9 @@ for (var key in taskDetails) {
     taskImage.setAttribute('src', taskDetails[key].src);
     taskImage.setAttribute('height', '100px');
     taskImage.setAttribute('width', '200px');
-    //taskTitle.appendChild(taskTitleValue);
     taskDetail.appendChild(taskTitleValue);
     var br = document.createElement("br");
     taskDetail.appendChild(br);
-    //taskDetail.appendChild(taskTitle);
     taskDetail.appendChild(taskImage);
     task.appendChild(taskDetail);
 
@@ -80,7 +78,6 @@ function getCheckinTaskOrdering() {
         checkinTaskStr = checkinTaskStr.concat(", ");
     }
     checkinTaskStr = checkinTaskStr.concat(listItems[listItems.length-1].getAttribute("id"));
-    //alert(checkinTaskStr);
     return checkinTaskStr;
 }
 
@@ -127,7 +124,6 @@ function checkPartialOrder() {
         var warningStr = "Partial order constraint(s) not satisfied\n";
         for (var item in orderingExceptions) {
             warningStr = warningStr.concat("</br>");
-            //warningStr = warningStr.concat(item);
             warningStr = warningStr.concat("[");
             warningStr = warningStr.concat(taskDetails[item].title);
             warningStr = warningStr.concat("]");
@@ -144,14 +140,6 @@ function checkPartialOrder() {
             warningStr = warningStr.concat(tempStr);
 
         }
-        //alert(warningStr);
-
-        /*
-    // Add the task details: title...
-    var alertInfo = document.getElementById("alertInfo");
-    //task.appendChild(taskDetail);
-    alertInfo.innerHTML = warningStr;
-    */
     }
 
     return warningStr;
@@ -228,6 +216,7 @@ function handleDragLeaveRight(e) {
     this.parentNode.classList.remove('over-right');
 }
 
+/*
 function handleDrop(e) {
     if (e.stopPropagation) {
         // Stops the browser from redirecting.
@@ -241,13 +230,14 @@ function handleDrop(e) {
         this.parentNode.insertBefore(draggingEl, this);
 
         // Swap the contents of draggingEl and this
-        //draggingEl.innerHTML = this.innerHTML;
-        //this.innerHTML = e.dataTransfer.getData('text/html');
+        draggingEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
     }
     // Do nothing if we drop an element on itself
 
     return false;
 }
+*/
 
 function getFirstChild(el){
   var firstChild = el.firstChild;
